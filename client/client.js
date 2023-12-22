@@ -40,7 +40,7 @@ async function getReviews() {
         reviewBox.appendChild(deleteBtn);
 
         deleteBtn.addEventListener("click", async function () {
-            await fetch(`https://week4-film-review-app.onrender.com/reviews/${rev.id}`, 
+            await fetch(`https://week4-film-review-app.onrender.com/${rev.id}`, 
             {
                 method: "DELETE",
             });
