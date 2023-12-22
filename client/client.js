@@ -5,7 +5,7 @@ form.addEventListener("submit", async function (event) {
     const formData = new FormData(form);
     const formValues = Object.fromEntries(formData);
 
-    const response = await fetch("http://localhost:8080/reviews", {
+    const response = await fetch("https://week4-film-review-app-vquc.onrender.com/reviews", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,7 +20,7 @@ form.addEventListener("submit", async function (event) {
 });
 
 async function getReviews() {
-    const response = await fetch("http://localhost:8080/reviews");
+    const response = await fetch("https://week4-film-review-app-vquc.onrender.com/reviews");
     const reviews = await response.json();
     reviews.forEach(function (rev) {
         const reviewBox = document.createElement("div");
@@ -40,7 +40,7 @@ async function getReviews() {
         reviewBox.appendChild(deleteBtn);
 
         deleteBtn.addEventListener("click", async function () {
-            await fetch(`http://localhost:8080/reviews/${rev.id}`, 
+            await fetch(`https://week4-film-review-app-vquc.onrender.com/reviews/${rev.id}`, 
             {
                 method: "DELETE",
             });
