@@ -36,11 +36,11 @@ app.post("/reviews", function (request, response) {
     response.json(newReview);
 });
 
-app.delete("reviews/:id", function (request, response) {
+app.delete("/:id", function (request, response) {
     const selectedReviewId = request.params.id;
     db.prepare(`DELETE FROM reviews WHERE id = ?`).run(selectedReviewId);
     console.log("review deleted");
-    response.json({ message: "reveiw deleted" });
+    response.json({ message: "review deleted" });
 });
 
 app.listen(8080, function () {
