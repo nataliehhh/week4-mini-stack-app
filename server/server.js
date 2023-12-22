@@ -11,7 +11,7 @@ app.get("/", function (request, response) {
     response.json("looking at the root route")
 });
 
-app.get("/reviews", function (request, response) {
+app.get("https://week4-film-review-app.onrender.com", function (request, response) {
     let reviews = [];
     if (request.query.id) {
         reviews = db
@@ -23,7 +23,7 @@ app.get("/reviews", function (request, response) {
     response.json(reviews);
 });
 
-app.post("/reviews", function (request, response) {
+app.post("https://week4-film-review-app.onrender.com", function (request, response) {
     console.log(request.body);
     const username = request.body.username;
     const filmtitle = request.body.filmtitle;
@@ -36,14 +36,13 @@ app.post("/reviews", function (request, response) {
     response.json(newReview);
 });
 
-app.delete("/reviews/:id", function (request, response) {
+app.delete("https://week4-film-review-app.onrender.com/:id", function (request, response) {
     const selectedReviewId = request.params.id;
     db.prepare(`DELETE FROM reviews WHERE id = ?`).run(selectedReviewId);
     console.log("review deleted");
     response.json({ message: "reveiw deleted" });
 });
 
-app.listen("https://week4-film-review-app-vquc.onrender.com", function () {
+app.listen("https://week4-film-review-app.onrender.com", function () {
     console.log("It is working!");
 });
-
